@@ -1,0 +1,351 @@
+{% extends "base.html" %}
+
+{% block title %}Browse Events - SSUET Events{% endblock %}
+
+{% block content %}
+
+<!-- Page Header -->
+<section class="bg-gradient-to-r from-ssuet-purple to-ssuet-purple-dark text-white py-16">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="flex items-center justify-between flex-wrap gap-4">
+            <div>
+                <h1 class="text-4xl md:text-5xl text-white font-black mb-3">Browse Events</h1>
+                <p class="text-purple-200 text-lg">Discover and register for upcoming campus events</p>
+            </div>
+            <div class="flex items-center gap-3">
+                <span class="px-4 py-2 bg-white/20 backdrop-blur-sm rounded-lg text-sm font-semibold">
+                    <span id="event-count">{{ events|length }}</span> Events Available
+                </span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Filters & Search Section -->
+<section class="bg-white border-b border-gray-200 sticky top-20 z-40 shadow-sm">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 py-6">
+        <div class="flex flex-col lg:flex-row gap-4 items-center justify-between">
+            <!-- Search Bar -->
+            <div class="w-full lg:w-96">
+                <div class="relative">
+                    <input 
+                        type="text" 
+                        id="search-input"
+                        placeholder="Search events..." 
+                        class="w-full pl-12 pr-4 py-3 border-2 border-gray-300 rounded-xl focus:outline-none focus:border-ssuet-purple transition-colors">
+                    <svg class="w-5 h-5 text-gray-400 absolute left-4 top-1/2 transform -translate-y-1/2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                    </svg>
+                </div>
+            </div>
+
+            <!-- Filters -->
+            <div class="flex flex-wrap gap-3 items-center">
+                <!-- Category Filter -->
+                <select id="category-filter" class="px-4 py-3 border-2 border-gray-300 rounded-xl focus:outline-none focus:border-ssuet-purple text-sm font-medium">
+                    <option value="all">All Categories</option>
+                    <option value="Technical">Technical</option>
+                    <option value="Sports">Sports</option>
+                    <option value="Cultural">Cultural</option>
+                    <option value="Academic">Academic</option>
+                    <option value="Seminars">Seminars</option>
+                </select>
+
+                <!-- Level Filter -->
+                <select id="level-filter" class="px-4 py-3 border-2 border-gray-300 rounded-xl focus:outline-none focus:border-ssuet-purple text-sm font-medium">
+                    <option value="all">All Levels</option>
+                    <option value="Beginner">Beginner</option>
+                    <option value="Intermediate">Intermediate</option>
+                    <option value="Advanced">Advanced</option>
+                    <option value="All">All Levels</option>
+                </select>
+
+                <!-- Sort -->
+                <select id="sort-filter" class="px-4 py-3 border-2 border-gray-300 rounded-xl focus:outline-none focus:border-ssuet-purple text-sm font-medium">
+                    <option value="date-asc">Date (Earliest)</option>
+                    <option value="date-desc">Date (Latest)</option>
+                    <option value="seats">Available Seats</option>
+                    <option value="title">Title (A-Z)</option>
+                </select>
+
+                <!-- View Toggle -->
+                <div class="flex gap-2 border-2 border-gray-300 rounded-xl p-1">
+                    <button id="grid-view-btn" class="p-2 rounded-lg bg-ssuet-purple text-white">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path>
+                        </svg>
+                    </button>
+                    <button id="list-view-btn" class="p-2 rounded-lg hover:bg-gray-100">
+                        <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Clear Filters -->
+                <button id="clear-filters-btn" class="px-4 py-3 text-ssuet-purple hover:bg-purple-50 rounded-xl font-medium text-sm transition-colors">
+                    Clear All
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Events Grid/List -->
+<section class="py-12 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <!-- No Results Message -->
+        <div id="no-results" class="hidden text-center py-16">
+            <svg class="w-24 h-24 mx-auto text-gray-300 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+            <h3 class="text-2xl font-bold text-gray-700 mb-2">No events found</h3>
+            <p class="text-gray-500 mb-6">Try adjusting your filters or search terms</p>
+            <button onclick="document.getElementById('clear-filters-btn').click()" class="btn-primary-small">
+                Clear Filters
+            </button>
+        </div>
+
+        <!-- Events Container -->
+        <div id="events-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {% for event in events %}
+            <article class="event-card card group cursor-pointer" 
+                     data-category="{{ event.category }}" 
+                     data-level="{{ event.level }}"
+                     data-date="{{ event.date }}"
+                     data-seats="{{ event.seats_available }}"
+                     data-title="{{ event.title }}"
+                     onclick="window.location.href='/events/{{ event.id }}'">
+                
+                <!-- Event Image -->
+                <div class="relative overflow-hidden">
+                    <img src="{{ url_for('static', filename='images/events/' + event.image) }}" 
+                         alt="{{ event.title }}" 
+                         class="card-image"
+                         onerror="this.src='https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=400&h=250&fit=crop'">
+                    
+                    <!-- Category Badge -->
+                    <div class="absolute top-4 left-4">
+                        <span class="badge badge-{{ event.category.lower() }} shadow-lg">
+                            {{ event.category }}
+                        </span>
+                    </div>
+                    
+                    <!-- Date Badge -->
+                    <div class="absolute top-4 right-4 bg-white rounded-xl shadow-xl px-4 py-3 text-center backdrop-blur-sm bg-opacity-95">
+                        <p class="text-xs text-gray-500 uppercase font-bold">
+                            {% set months = ['', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'] %}
+                            {{ months[event.date.split('-')[1]|int] }}
+                        </p>
+                        <p class="text-3xl font-black text-ssuet-purple leading-none">{{ event.date.split('-')[2] }}</p>
+                    </div>
+                </div>
+                
+                <!-- Card Content -->
+                <div class="card-content">
+                    <h3 class="card-title mb-3">{{ event.title }}</h3>
+                    
+                    <!-- Meta Grid -->
+                    <div class="grid grid-cols-2 gap-3 mb-4 text-sm">
+                        <!-- Time -->
+                        <div class="flex items-center gap-2 text-gray-600">
+                            <svg class="w-4 h-4 text-ssuet-green flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <span class="truncate">{{ event.time.split(' - ')[0] }}</span>
+                        </div>
+                        
+                        <!-- Venue -->
+                        <div class="flex items-center gap-2 text-gray-600">
+                            <svg class="w-4 h-4 text-ssuet-green flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                            <span class="truncate">{{ event.venue }}</span>
+                        </div>
+                        
+                        <!-- Duration -->
+                        <div class="flex items-center gap-2 text-gray-600">
+                            <svg class="w-4 h-4 text-ssuet-green flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                            </svg>
+                            <span class="truncate">{{ event.duration }}</span>
+                        </div>
+                        
+                        <!-- Level -->
+                        <div class="flex items-center gap-2 text-gray-600">
+                            <svg class="w-4 h-4 text-ssuet-green flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>
+                            </svg>
+                            <span class="truncate">{{ event.level }}</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Description -->
+                    <p class="card-description mb-4 line-clamp-2">
+                        {{ event.description }}
+                    </p>
+                    
+                    <!-- Footer -->
+                    <div class="border-t border-gray-200 pt-4 flex items-center justify-between">
+                        <!-- Seats Available -->
+                        <div class="flex items-center gap-2">
+                            <div class="w-10 h-10 rounded-lg bg-green-50 flex items-center justify-center">
+                                <svg class="w-5 h-5 text-ssuet-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                                </svg>
+                            </div>
+                            <div class="text-sm">
+                                <p class="font-bold text-ssuet-purple">{{ event.seats_available }} seats</p>
+                                <p class="text-xs text-gray-500">of {{ event.total_seats }} total</p>
+                            </div>
+                        </div>
+                        
+                        <!-- View Button -->
+                        <button class="px-4 py-2 bg-ssuet-purple text-white rounded-lg font-semibold text-sm hover:bg-ssuet-purple-dark transition-colors flex items-center gap-2">
+                            View Details
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </article>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+// State
+let currentView = 'grid';
+let allEvents = [];
+
+// Initialize
+document.addEventListener('DOMContentLoaded', function() {
+    // Get all event cards
+    allEvents = Array.from(document.querySelectorAll('.event-card'));
+    
+    // Event Listeners
+    document.getElementById('search-input').addEventListener('input', filterEvents);
+    document.getElementById('category-filter').addEventListener('change', filterEvents);
+    document.getElementById('level-filter').addEventListener('change', filterEvents);
+    document.getElementById('sort-filter').addEventListener('change', sortEvents);
+    document.getElementById('clear-filters-btn').addEventListener('click', clearFilters);
+    document.getElementById('grid-view-btn').addEventListener('click', () => setView('grid'));
+    document.getElementById('list-view-btn').addEventListener('click', () => setView('list'));
+});
+
+// Filter Events
+function filterEvents() {
+    const searchTerm = document.getElementById('search-input').value.toLowerCase();
+    const categoryFilter = document.getElementById('category-filter').value;
+    const levelFilter = document.getElementById('level-filter').value;
+    
+    let visibleCount = 0;
+    
+    allEvents.forEach(card => {
+        const title = card.dataset.title.toLowerCase();
+        const category = card.dataset.category;
+        const level = card.dataset.level;
+        
+        const matchesSearch = title.includes(searchTerm);
+        const matchesCategory = categoryFilter === 'all' || category === categoryFilter;
+        const matchesLevel = levelFilter === 'all' || level === levelFilter;
+        
+        if (matchesSearch && matchesCategory && matchesLevel) {
+            card.style.display = '';
+            visibleCount++;
+        } else {
+            card.style.display = 'none';
+        }
+    });
+    
+    // Update count
+    document.getElementById('event-count').textContent = visibleCount;
+    
+    // Show/hide no results
+    document.getElementById('no-results').classList.toggle('hidden', visibleCount > 0);
+    
+    // Sort after filtering
+    sortEvents();
+}
+
+// Sort Events
+function sortEvents() {
+    const sortValue = document.getElementById('sort-filter').value;
+    const container = document.getElementById('events-container');
+    const visibleEvents = allEvents.filter(card => card.style.display !== 'none');
+    
+    visibleEvents.sort((a, b) => {
+        switch(sortValue) {
+            case 'date-asc':
+                return new Date(a.dataset.date) - new Date(b.dataset.date);
+            case 'date-desc':
+                return new Date(b.dataset.date) - new Date(a.dataset.date);
+            case 'seats':
+                return parseInt(b.dataset.seats) - parseInt(a.dataset.seats);
+            case 'title':
+                return a.dataset.title.localeCompare(b.dataset.title);
+            default:
+                return 0;
+        }
+    });
+    
+    // Re-append in sorted order
+    visibleEvents.forEach(card => container.appendChild(card));
+}
+
+// Clear Filters
+function clearFilters() {
+    document.getElementById('search-input').value = '';
+    document.getElementById('category-filter').value = 'all';
+    document.getElementById('level-filter').value = 'all';
+    document.getElementById('sort-filter').value = 'date-asc';
+    filterEvents();
+}
+
+// Set View (Grid/List)
+function setView(view) {
+    currentView = view;
+    const container = document.getElementById('events-container');
+    const gridBtn = document.getElementById('grid-view-btn');
+    const listBtn = document.getElementById('list-view-btn');
+    
+    if (view === 'grid') {
+        container.className = 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8';
+        gridBtn.className = 'p-2 rounded-lg bg-ssuet-purple text-white';
+        listBtn.className = 'p-2 rounded-lg hover:bg-gray-100';
+    } else {
+        container.className = 'flex flex-col gap-6';
+        gridBtn.className = 'p-2 rounded-lg hover:bg-gray-100';
+        listBtn.className = 'p-2 rounded-lg bg-ssuet-purple text-white';
+        
+        // Make cards wider in list view
+        allEvents.forEach(card => {
+            if (view === 'list') {
+                card.classList.add('flex', 'flex-row');
+                card.querySelector('.card-image').parentElement.classList.add('w-80');
+            } else {
+                card.classList.remove('flex', 'flex-row');
+                card.querySelector('.card-image').parentElement.classList.remove('w-80');
+            }
+        });
+    }
+}
+
+// URL Parameters handling (for category links from home page)
+window.addEventListener('DOMContentLoaded', function() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const category = urlParams.get('category');
+    
+    if (category) {
+        document.getElementById('category-filter').value = category;
+        filterEvents();
+    }
+});
+</script>
+{% endblock %}

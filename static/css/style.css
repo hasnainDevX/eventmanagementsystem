@@ -1,0 +1,648 @@
+/* ===========================
+   SSUET EVENT MANAGEMENT SYSTEM
+   Custom CSS with Official Branding
+   =========================== */
+
+/* CSS Variables - SSUET Official Colors */
+:root {
+    --ssuet-purple: #662D91;
+    --ssuet-purple-dark: #4a1f6b;
+    --ssuet-purple-light: #8b4bc4;
+    --ssuet-green: #34B04A;
+    --ssuet-green-dark: #2a8d3b;
+    --ssuet-green-light: #4bc963;
+    --cream: #FAFAF8;
+    --light-gray: #F5F5F5;
+    --medium-gray: #6B7280;
+    --border-gray: #E5E7EB;
+    --text-dark: #1A1A1A;
+    --white: #FFFFFF;
+}
+
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    font-size: 17px;
+    line-height: 1.7;
+    color: var(--text-dark);
+    background-color: var(--white);
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    color: var(--ssuet-purple);
+    line-height: 1.2;
+}
+
+h1 {
+    font-size: 56px;
+    letter-spacing: -0.5px;
+}
+
+h2 {
+    font-size: 40px;
+}
+
+h3 {
+    font-size: 32px;
+}
+
+p {
+    color: var(--medium-gray);
+    line-height: 1.8;
+}
+
+/* Utility Classes */
+.text-ssuet-purple {
+    color: var(--ssuet-purple);
+}
+
+.text-ssuet-green {
+    color: var(--ssuet-green);
+}
+
+.bg-ssuet-purple {
+    background-color: var(--ssuet-purple);
+}
+
+.bg-ssuet-green {
+    background-color: var(--ssuet-green);
+}
+
+.bg-cream {
+    background-color: var(--cream);
+}
+
+.bg-light-gray {
+    background-color: var(--light-gray);
+}
+
+.max-w-7xl {
+    max-width: 1200px;
+}
+
+/* Navigation Links */
+.nav-link {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--ssuet-purple);
+    text-decoration: none;
+    letter-spacing: 0.3px;
+    padding-bottom: 2px;
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.nav-link:hover {
+    color: var(--ssuet-green);
+    border-bottom-color: var(--ssuet-green);
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--ssuet-green);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.nav-link-mobile {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--ssuet-purple);
+    text-decoration: none;
+    transition: color 0.2s ease;
+    padding: 8px 0;
+}
+
+.nav-link-mobile:hover {
+    color: var(--ssuet-green);
+}
+
+/* Buttons */
+.btn-primary {
+    display: inline-block;
+    padding: 16px 40px;
+    background: linear-gradient(135deg, var(--ssuet-purple) 0%, var(--ssuet-purple-dark) 100%);
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(102, 45, 145, 0.25);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.btn-primary:hover::before {
+    left: 100%;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(102, 45, 145, 0.35);
+}
+
+.btn-primary-small {
+    display: inline-block;
+    padding: 10px 24px;
+    background: linear-gradient(135deg, var(--ssuet-purple) 0%, var(--ssuet-purple-dark) 100%);
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(102, 45, 145, 0.2);
+}
+
+.btn-primary-small:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(102, 45, 145, 0.3);
+}
+
+.btn-secondary {
+    display: inline-block;
+    padding: 16px 40px;
+    background-color: white;
+    color: var(--ssuet-purple);
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 12px;
+    border: 2px solid var(--ssuet-purple);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background-color: var(--ssuet-purple);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(102, 45, 145, 0.25);
+}
+
+.btn-green {
+    display: inline-block;
+    padding: 16px 40px;
+    background: linear-gradient(135deg, var(--ssuet-green) 0%, var(--ssuet-green-dark) 100%);
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(52, 176, 74, 0.25);
+}
+
+.btn-green:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(52, 176, 74, 0.35);
+}
+
+/* Cards */
+.card {
+    background-color: white;
+    border-radius: 16px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid var(--border-gray);
+}
+
+.card:hover {
+    box-shadow: 0 12px 32px rgba(102, 45, 145, 0.15);
+    transform: translateY(-8px);
+    border-color: var(--ssuet-purple-light);
+}
+
+.card-image {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card:hover .card-image {
+    transform: scale(1.08);
+}
+
+.card-content {
+    padding: 24px;
+}
+
+.card-category {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--ssuet-green);
+    margin-bottom: 8px;
+}
+
+.card-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--ssuet-purple);
+    margin-bottom: 12px;
+    transition: color 0.3s ease;
+    line-height: 1.4;
+}
+
+.card:hover .card-title {
+    color: var(--ssuet-green);
+}
+
+.card-meta {
+    font-size: 14px;
+    color: var(--medium-gray);
+    margin-bottom: 12px;
+}
+
+.card-description {
+    font-size: 15px;
+    color: var(--medium-gray);
+    line-height: 1.7;
+    margin-bottom: 16px;
+}
+
+.card-link {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--ssuet-purple);
+    text-decoration: none;
+    border-bottom: 2px solid var(--ssuet-purple);
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.card-link:hover {
+    color: var(--ssuet-green);
+    border-bottom-color: var(--ssuet-green);
+    gap: 10px;
+}
+
+/* Category Badges */
+.badge {
+    display: inline-block;
+    padding: 6px 14px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 20px;
+    background-color: var(--light-gray);
+    color: var(--ssuet-purple);
+}
+
+.badge-technical {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.badge-sports {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    color: white;
+}
+
+.badge-cultural {
+    background: linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%);
+    color: var(--ssuet-purple);
+}
+
+.badge-academic {
+    background: linear-gradient(135deg, var(--ssuet-green) 0%, var(--ssuet-green-dark) 100%);
+    color: white;
+}
+
+.badge-seminars {
+    background: linear-gradient(135deg, var(--ssuet-purple) 0%, var(--ssuet-purple-dark) 100%);
+    color: white;
+}
+
+/* Forms */
+.form-label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--ssuet-purple);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.form-input {
+    width: 100%;
+    padding: 14px 16px;
+    border: 2px solid var(--border-gray);
+    border-radius: 10px;
+    font-size: 16px;
+    color: var(--text-dark);
+    transition: all 0.3s ease;
+    font-family: 'Inter', sans-serif;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: var(--ssuet-purple);
+    box-shadow: 0 0 0 3px rgba(102, 45, 145, 0.1);
+}
+
+.form-textarea {
+    width: 100%;
+    padding: 14px 16px;
+    border: 2px solid var(--border-gray);
+    border-radius: 10px;
+    font-size: 16px;
+    color: var(--text-dark);
+    font-family: 'Inter', sans-serif;
+    resize: vertical;
+    min-height: 120px;
+    transition: all 0.3s ease;
+}
+
+.form-textarea:focus {
+    outline: none;
+    border-color: var(--ssuet-purple);
+    box-shadow: 0 0 0 3px rgba(102, 45, 145, 0.1);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+.animate-fade-in {
+    animation: fadeIn 0.8s ease-out forwards;
+    opacity: 0;
+}
+
+.animate-slide-left {
+    animation: slideInLeft 0.8s ease-out forwards;
+    opacity: 0;
+}
+
+.animate-slide-right {
+    animation: slideInRight 0.8s ease-out forwards;
+    opacity: 0;
+}
+
+.animate-scale {
+    animation: scaleIn 0.8s ease-out forwards;
+    opacity: 0;
+}
+
+.animate-float {
+    animation: float 3s ease-in-out infinite;
+}
+
+.animate-pulse {
+    animation: pulse 2s ease-in-out infinite;
+}
+
+/* Gradient Backgrounds */
+.gradient-purple {
+    background: linear-gradient(135deg, var(--ssuet-purple) 0%, var(--ssuet-purple-dark) 100%);
+}
+
+.gradient-green {
+    background: linear-gradient(135deg, var(--ssuet-green) 0%, var(--ssuet-green-dark) 100%);
+}
+
+.gradient-purple-green {
+    background: linear-gradient(135deg, var(--ssuet-purple) 0%, var(--ssuet-green) 100%);
+}
+
+/* Divider */
+.divider {
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--ssuet-purple), var(--ssuet-green));
+    margin: 0 auto;
+    border-radius: 2px;
+}
+
+/* Section Spacing */
+.section-padding {
+    padding: 100px 0;
+}
+
+/* Stats Counter */
+.stat-number {
+    font-size: 56px;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--ssuet-purple), var(--ssuet-green));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+}
+
+/* Hover Effects */
+.hover-lift {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+}
+
+/* Loading State */
+.loading {
+    opacity: 0.5;
+    pointer-events: none;
+    position: relative;
+}
+
+.loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 30px;
+    height: 30px;
+    margin: -15px 0 0 -15px;
+    border: 3px solid var(--ssuet-purple);
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Responsive Typography */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 36px;
+    }
+    
+    h2 {
+        font-size: 28px;
+    }
+    
+    h3 {
+        font-size: 22px;
+    }
+    
+    body {
+        font-size: 16px;
+    }
+    
+    .section-padding {
+        padding: 60px 0;
+    }
+    
+    .stat-number {
+        font-size: 40px;
+    }
+    
+    .card-image {
+        height: 200px;
+    }
+    
+    .btn-primary,
+    .btn-secondary,
+    .btn-green {
+        padding: 14px 32px;
+        font-size: 15px;
+    }
+}
+
+/* Smooth Scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Selection Color */
+::selection {
+    background-color: var(--ssuet-purple);
+    color: white;
+}
+
+::-moz-selection {
+    background-color: var(--ssuet-purple);
+    color: white;
+}
+
+/* Focus Visible */
+*:focus-visible {
+    outline: 3px solid var(--ssuet-green);
+    outline-offset: 2px;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--light-gray);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--ssuet-purple);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--ssuet-purple-dark);
+}

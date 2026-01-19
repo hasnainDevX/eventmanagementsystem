@@ -1,0 +1,120 @@
+{% extends "base.html" %}
+
+{% block title %}404 - Page Not Found | SSUET Events{% endblock %}
+
+{% block content %}
+
+<!-- 404 Error Section -->
+<section class="relative min-h-screen bg-gradient-to-br from-ssuet-purple to-ssuet-purple-dark flex items-center justify-center overflow-hidden">
+    <!-- Animated Background Elements -->
+    <div class="absolute inset-0 opacity-10">
+        <div class="absolute top-0 left-0 w-96 h-96 bg-ssuet-green rounded-full blur-3xl animate-float"></div>
+        <div class="absolute bottom-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl animate-pulse"></div>
+        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-ssuet-green rounded-full blur-3xl animate-float" style="animation-delay: 1s;"></div>
+    </div>
+
+    <div class="relative z-10 max-w-4xl mx-auto px-6 lg:px-8 text-center py-20">
+        <!-- Error Code -->
+        <div class="mb-8 animate-fade-in">
+            <h1 class="text-[180px] md:text-[220px] font-black leading-none text-transparent bg-clip-text bg-gradient-to-r from-white to-ssuet-green-light">
+                404
+            </h1>
+        </div>
+
+        <!-- Error Message -->
+        <div class="mb-8 animate-fade-in" style="animation-delay: 0.2s;">
+            <div class="inline-block px-6 py-3 bg-white/20 backdrop-blur-sm text-white rounded-full text-sm font-bold uppercase tracking-wider mb-6">
+                Oops! Page Not Found
+            </div>
+            <h2 class="text-4xl md:text-5xl font-black text-white mb-6">
+                This Event Seems to Have
+                <span class="text-ssuet-green">Disappeared!</span>
+            </h2>
+            <p class="text-xl text-purple-200 leading-relaxed max-w-2xl mx-auto mb-4">
+                The page you're looking for doesn't exist or might have been moved.
+                Don't worry, there are plenty of exciting events waiting for you!
+            </p>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="mb-12 animate-fade-in" style="animation-delay: 0.4s;">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto mb-8">
+                <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 hover:bg-white/20 transition-all">
+                    <div class="text-4xl font-black text-white mb-2">500+</div>
+                    <div class="text-purple-200 text-sm font-semibold uppercase tracking-wider">Events</div>
+                </div>
+                <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 hover:bg-white/20 transition-all">
+                    <div class="text-4xl font-black text-white mb-2">15+</div>
+                    <div class="text-purple-200 text-sm font-semibold uppercase tracking-wider">Categories</div>
+                </div>
+                <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 hover:bg-white/20 transition-all">
+                    <div class="text-4xl font-black text-white mb-2">5K+</div>
+                    <div class="text-purple-200 text-sm font-semibold uppercase tracking-wider">Students</div>
+                </div>
+                <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 hover:bg-white/20 transition-all">
+                    <div class="text-4xl font-black text-white mb-2">24/7</div>
+                    <div class="text-purple-200 text-sm font-semibold uppercase tracking-wider">Available</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12 animate-fade-in" style="animation-delay: 0.6s;">
+            <a href="/" class="btn-green inline-flex items-center justify-center gap-3">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+                </svg>
+                <span>Go to Homepage</span>
+            </a>
+            <a href="/events" class="px-8 py-4 bg-white text-ssuet-purple font-bold rounded-xl hover:bg-gray-100 transition-all inline-flex items-center justify-center gap-3">
+                <span>Browse Events</span>
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                </svg>
+            </a>
+        </div>
+
+        <!-- Popular Categories -->
+        <div class="animate-fade-in" style="animation-delay: 0.8s;">
+            <p class="text-purple-200 font-semibold mb-4 uppercase text-sm tracking-wider">
+                Or explore by category:
+            </p>
+            <div class="flex flex-wrap gap-3 justify-center">
+                <a href="/events?category=technical" class="badge badge-technical hover:scale-110 transition-transform cursor-pointer">
+                    Technical
+                </a>
+                <a href="/events?category=sports" class="badge badge-sports hover:scale-110 transition-transform cursor-pointer">
+                    Sports
+                </a>
+                <a href="/events?category=cultural" class="badge badge-cultural hover:scale-110 transition-transform cursor-pointer">
+                    Cultural
+                </a>
+                <a href="/events?category=academic" class="badge badge-academic hover:scale-110 transition-transform cursor-pointer">
+                    Academic
+                </a>
+                <a href="/events?category=seminars" class="badge badge-seminars hover:scale-110 transition-transform cursor-pointer">
+                    Seminars
+                </a>
+            </div>
+        </div>
+
+        <!-- Help Text -->
+        <div class="mt-16 pt-8 border-t border-white/20 animate-fade-in" style="animation-delay: 1s;">
+            <p class="text-purple-200 text-sm">
+                Need help? 
+                <a href="/contact" class="text-ssuet-green font-semibold hover:underline">Contact our support team</a> 
+                or go back to the 
+                <a href="/" class="text-white font-semibold hover:underline">homepage</a>
+            </p>
+        </div>
+    </div>
+
+    <!-- Decorative Icon -->
+    <div class="absolute bottom-8 right-8 opacity-20 animate-float">
+        <svg class="w-32 h-32 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+        </svg>
+    </div>
+</section>
+
+{% endblock %}

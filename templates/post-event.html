@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+
+{% block title %}Post Event{% endblock %}
+
+{% block content %}
+
+<section class="py-16 bg-gray-50">
+    <div class="max-w-3xl mx-auto px-6">
+
+        <h1 class="text-3xl font-bold text-center text-ssuet-purple mb-8">
+            Create New Event
+        </h1>
+
+        <div class="bg-white p-8 rounded-xl shadow border">
+
+            <!-- FRONTEND ONLY FORM -->
+            <form action="/events" method="get">
+
+                <!-- Title -->
+                <div class="mb-5">
+                    <label class="block font-medium mb-2">Event Title</label>
+                    <input type="text" class="form-input" placeholder="Event title">
+                </div>
+
+                <!-- Description -->
+                <div class="mb-5">
+                    <label class="block font-medium mb-2">Description</label>
+                    <textarea class="form-textarea" rows="4" placeholder="Event description"></textarea>
+                </div>
+
+                <!-- Date & Time -->
+                <div class="grid grid-cols-2 gap-4 mb-5">
+                    <div>
+                        <label class="block font-medium mb-2">Date</label>
+                        <input type="date" class="form-input">
+                    </div>
+                    <div>
+                        <label class="block font-medium mb-2">Time</label>
+                        <input type="time" class="form-input">
+                    </div>
+                </div>
+
+                <!-- Location -->
+                <div class="mb-5">
+                    <label class="block font-medium mb-2">Location</label>
+                    <input type="text" class="form-input" placeholder="Event location">
+                </div>
+
+                <!-- Category -->
+                <div class="mb-5">
+                    <label class="block font-medium mb-2">Category</label>
+                    <select class="form-input">
+                        <option>Technical</option>
+                        <option>Sports</option>
+                        <option>Cultural</option>
+                        <option>Academic</option>
+                    </select>
+                </div>
+
+                <!-- Organizer -->
+                <div class="mb-8">
+                    <label class="block font-medium mb-2">Organizer</label>
+                    <input type="text" class="form-input" placeholder="Organizer name">
+                </div>
+
+                <!-- ACTIONS -->
+                <div class="flex gap-4">
+                    <button type="submit" class="btn-primary flex-1">
+                        Publish Event
+                    </button>
+
+                    <a href="/events" class="btn-secondary flex-1 text-center">
+                        Cancel
+                    </a>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+</section>
+
+{% endblock %}

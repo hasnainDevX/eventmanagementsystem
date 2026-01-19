@@ -1,11 +1,467 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+{% extends "base.html" %}
+
+{% block title %}Home - SSUET Events Management System{% endblock %}
+
+{% block content %}
+
+<!-- Hero Section with Background Image -->
+<section class="relative h-[600px] bg-ssuet-purple overflow-hidden">
+    <!-- Background Image with Overlay -->
+    <div class="absolute inset-0">
+        <img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=1920&h=600&fit=crop" 
+             alt="SSUET Campus Events" 
+             class="w-full h-full object-cover">
+        <div class="absolute inset-0 bg-gradient-to-r from-ssuet-purple/95 via-ssuet-purple/85 to-ssuet-purple-dark/90"></div>
+    </div>
     
-</body>
-</html>
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 h-full flex items-center relative z-10">
+        <div class="max-w-3xl">
+        <div class="max-w-3xl">
+            <!-- Badge -->
+            <div class="inline-flex items-center gap-2 px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full mb-6">
+                <span class="w-2 h-2 bg-ssuet-green rounded-full animate-pulse"></span>
+                <span class="text-xs font-bold text-white uppercase tracking-wider">SSUET Events 2026</span>
+            </div>
+            
+            <!-- Main Headline -->
+            <h1 class="text-5xl md:text-6xl font-black text-white mb-6 leading-tight">
+                Discover Campus
+                <span class="text-ssuet-green">Experiences</span>
+            </h1>
+            
+            <!-- Subheadline -->
+            <p class="text-xl text-purple-100 mb-10 leading-relaxed">
+                Join workshops, seminars, and cultural events that enrich your university journey at Sir Syed University of Engineering & Technology
+            </p>
+            
+            <!-- CTA Buttons -->
+            <div class="flex flex-wrap gap-4 mb-12">
+                <a href="/events" class="btn-green inline-flex items-center gap-3">
+                    <span>Browse Events</span>
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                    </svg>
+                </a>
+                <a href="/about" class="px-8 py-4 bg-white text-ssuet-purple font-bold rounded-xl hover:bg-gray-100 transition-all inline-flex items-center gap-3">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    <span>Learn More</span>
+                </a>
+            </div>
+            
+            <!-- Stats Counter -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="text-center">
+                    <p class="text-4xl font-black text-white mb-1">500+</p>
+                    <p class="text-sm text-purple-200 uppercase tracking-wider font-semibold">Events Hosted</p>
+                </div>
+                <div class="text-center">
+                    <p class="text-4xl font-black text-white mb-1">5000+</p>
+                    <p class="text-sm text-purple-200 uppercase tracking-wider font-semibold">Students</p>
+                </div>
+                <div class="text-center">
+                    <p class="text-4xl font-black text-white mb-1">15+</p>
+                    <p class="text-sm text-purple-200 uppercase tracking-wider font-semibold">Categories</p>
+                </div>
+                <div class="text-center">
+                    <p class="text-4xl font-black text-white mb-1">50+</p>
+                    <p class="text-sm text-purple-200 uppercase tracking-wider font-semibold">Partners</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Featured Events Section -->
+<section class="py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <!-- Section Header -->
+        <div class="text-center mb-16">
+            <div class="inline-block px-4 py-2 bg-purple-100 text-ssuet-purple rounded-full text-sm font-bold uppercase tracking-wider mb-4">
+                Upcoming Events
+            </div>
+            <h2 class="text-4xl md:text-5xl font-black text-ssuet-purple mb-4">
+                Happening Soon
+            </h2>
+            <div class="divider mb-6"></div>
+            <p class="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
+                Don't miss out on these exciting opportunities to learn, grow, and connect with your peers
+            </p>
+        </div>
+        
+        <!-- Events Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {% for event in featured_events %}
+            <article class="card group cursor-pointer" onclick="window.location.href='/events/{{ event.id }}'">
+                <!-- Event Image -->
+                <div class="relative overflow-hidden">
+                    <img src="{{ url_for('static', filename='images/events/' + event.image) }}" 
+                         alt="{{ event.title }}" 
+                         class="card-image"
+                         onerror="this.src='https://via.placeholder.com/400x220/662D91/FFFFFF?text={{ event.category }}+Event'">
+                    
+                    <!-- Category Badge -->
+                    <div class="absolute top-4 left-4">
+                        <span class="badge badge-{{ event.category.lower() }} backdrop-blur-sm shadow-lg">
+                            {{ event.category }}
+                        </span>
+                    </div>
+                    
+                    <!-- Date Badge -->
+                    <div class="absolute top-4 right-4 bg-white rounded-xl shadow-xl px-4 py-3 text-center">
+                        <p class="text-xs text-gray-500 uppercase font-bold">{{ event.date.split('-')[1] }}</p>
+                        <p class="text-3xl font-black text-ssuet-purple leading-none">{{ event.date.split('-')[2] }}</p>
+                    </div>
+                    
+                    <!-- Hover Overlay -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-ssuet-purple/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-6">
+                        <span class="text-white font-bold px-6 py-2 bg-ssuet-green rounded-full transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                            View Details →
+                        </span>
+                    </div>
+                </div>
+                
+                <!-- Card Content -->
+                <div class="card-content">
+                    <h3 class="card-title group-hover:text-ssuet-green transition-colors duration-300">
+                        {{ event.title }}
+                    </h3>
+                    
+                    <!-- Meta Information -->
+                    <div class="flex flex-wrap items-center gap-4 mb-4 text-sm text-gray-600">
+                        <span class="flex items-center gap-1.5">
+                            <svg class="w-4 h-4 text-ssuet-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            {{ event.time.split(' - ')[0] }}
+                        </span>
+                        <span class="flex items-center gap-1.5">
+                            <svg class="w-4 h-4 text-ssuet-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                            {{ event.venue }}
+                        </span>
+                    </div>
+                    
+                    <!-- Description -->
+                    <p class="card-description mb-4">
+                        {{ event.description[:110] }}{% if event.description|length > 110 %}...{% endif %}
+                    </p>
+                    
+                    <!-- Footer -->
+                    <div class="border-t border-gray-200 pt-4 flex items-center justify-between">
+                        <div class="flex items-center gap-2 text-sm font-semibold">
+                            <svg class="w-5 h-5 text-ssuet-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                            </svg>
+                            <span class="text-ssuet-purple">{{ event.seats_available }} seats left</span>
+                        </div>
+                        <a href="/events/{{ event.id }}" class="card-link group-hover:gap-3">
+                            Details
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </article>
+            {% endfor %}
+        </div>
+        
+        <!-- View All Link -->
+        <div class="text-center mt-16">
+            <a href="/events" class="inline-flex items-center gap-2 text-ssuet-purple font-bold text-lg hover:text-ssuet-green transition-colors group">
+                View All Events
+                <svg class="w-6 h-6 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                </svg>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Categories Section -->
+<section class="py-24 bg-gradient-to-br from-purple-50 to-green-50">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <!-- Section Header -->
+        <div class="text-center mb-16">
+            <div class="inline-block px-4 py-2 bg-white text-ssuet-purple rounded-full text-sm font-bold uppercase tracking-wider mb-4 shadow-lg">
+                Event Categories
+            </div>
+            <h2 class="text-4xl md:text-5xl font-black text-ssuet-purple mb-4">
+                Explore by Interest
+            </h2>
+            <div class="divider mb-6"></div>
+            <p class="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
+                Find events that match your passions and academic interests
+            </p>
+        </div>
+        
+        <!-- Categories Grid -->
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+            <!-- Technical -->
+            <a href="/events?category=Technical" class="card text-center p-8 hover:shadow-2xl transition-all duration-300 group bg-white">
+                <div class="w-16 h-16 bg-purple-100 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                    <svg class="w-8 h-8 text-ssuet-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                    </svg>
+                </div>
+                <h4 class="text-lg font-bold text-ssuet-purple mb-2 group-hover:text-ssuet-green transition-colors">Technical</h4>
+                <p class="text-sm text-gray-600 mb-2">Workshops & Coding</p>
+                <div class="inline-flex items-center justify-center w-8 h-8 bg-purple-100 text-ssuet-purple rounded-full text-xs font-bold">
+                    12
+                </div>
+            </a>
+            
+            <!-- Sports -->
+            <a href="/events?category=Sports" class="card text-center p-8 hover:shadow-2xl transition-all duration-300 group bg-white">
+                <div class="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                    <svg class="w-8 h-8 text-ssuet-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                </div>
+                <h4 class="text-lg font-bold text-ssuet-purple mb-2 group-hover:text-ssuet-green transition-colors">Sports</h4>
+                <p class="text-sm text-gray-600 mb-2">Athletic Events</p>
+                <div class="inline-flex items-center justify-center w-8 h-8 bg-purple-100 text-ssuet-purple rounded-full text-xs font-bold">
+                    8
+                </div>
+            </a>
+            
+            <!-- Cultural -->
+            <a href="/events?category=Cultural" class="card text-center p-8 hover:shadow-2xl transition-all duration-300 group bg-white">
+                <div class="w-16 h-16 bg-purple-100 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                    <svg class="w-8 h-8 text-ssuet-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 4v16M17 4v16M3 8h4m10 0h4M3 12h18M3 16h4m10 0h4M4 20h16a1 1 0 001-1V5a1 1 0 00-1-1H4a1 1 0 00-1 1v14a1 1 0 001 1z"></path>
+                    </svg>
+                </div>
+                <h4 class="text-lg font-bold text-ssuet-purple mb-2 group-hover:text-ssuet-green transition-colors">Cultural</h4>
+                <p class="text-sm text-gray-600 mb-2">Arts & Music</p>
+                <div class="inline-flex items-center justify-center w-8 h-8 bg-purple-100 text-ssuet-purple rounded-full text-xs font-bold">
+                    15
+                </div>
+            </a>
+            
+            <!-- Academic -->
+            <a href="/events?category=Academic" class="card text-center p-8 hover:shadow-2xl transition-all duration-300 group bg-white">
+                <div class="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                    <svg class="w-8 h-8 text-ssuet-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                    </svg>
+                </div>
+                <h4 class="text-lg font-bold text-ssuet-purple mb-2 group-hover:text-ssuet-green transition-colors">Academic</h4>
+                <p class="text-sm text-gray-600 mb-2">Lectures & Seminars</p>
+                <div class="inline-flex items-center justify-center w-8 h-8 bg-purple-100 text-ssuet-purple rounded-full text-xs font-bold">
+                    20
+                </div>
+            </a>
+            
+            <!-- Seminars -->
+            <a href="/events?category=Seminars" class="card text-center p-8 hover:shadow-2xl transition-all duration-300 group bg-white">
+                <div class="w-16 h-16 bg-purple-100 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                    <svg class="w-8 h-8 text-ssuet-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"></path>
+                    </svg>
+                </div>
+                <h4 class="text-lg font-bold text-ssuet-purple mb-2 group-hover:text-ssuet-green transition-colors">Seminars</h4>
+                <p class="text-sm text-gray-600 mb-2">Guest Speakers</p>
+                <div class="inline-flex items-center justify-center w-8 h-8 bg-purple-100 text-ssuet-purple rounded-full text-xs font-bold">
+                    10
+                </div>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- How It Works Section -->
+<section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <!-- Section Header -->
+        <div class="text-center mb-20">
+            <div class="inline-block px-4 py-2 bg-purple-100 text-ssuet-purple rounded-full text-sm font-bold uppercase tracking-wider mb-4">
+                Simple Process
+            </div>
+            <h2 class="text-4xl md:text-5xl font-black text-ssuet-purple mb-4">
+                How It Works
+            </h2>
+            <div class="divider mb-6"></div>
+            <p class="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
+                Getting involved in campus events has never been easier
+            </p>
+        </div>
+        
+        <!-- Steps Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12 relative">
+            <!-- Connecting Line (Desktop Only) -->
+            <div class="hidden md:block absolute top-1 left-1/4 right-1/4 h-[1.5px] bg-gradient-to-r from-ssuet-purple via-ssuet-green to-ssuet-purple rounded-full my-12"></div>
+            
+            <!-- Step 1 -->
+            <div class="text-center relative mt-2">
+                <div class="inline-flex items-center justify-center w-24 h-24 rounded-full bg-gradient-to-br from-ssuet-purple to-ssuet-purple-dark text-white text-3xl font-black mb-6 relative z-10 shadow-2xl animate-pulse">
+                    01
+                </div>
+                <div class="mb-6 flex justify-center">
+                    <div class="w-20 h-20 bg-purple-100 rounded-2xl flex items-center justify-center">
+                        <svg class="w-12 h-12 text-ssuet-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                        </svg>
+                    </div>
+                </div>
+                <h3 class="text-2xl font-bold text-ssuet-purple mb-3">Browse Events</h3>
+                <p class="text-gray-600 leading-relaxed">
+                    Explore our calendar of upcoming workshops, seminars, and activities happening across campus
+                </p>
+            </div>
+            
+            <!-- Step 2 -->
+            <div class="text-center relative mt-2">
+                <div class="inline-flex items-center justify-center w-24 h-24 rounded-full bg-gradient-to-br from-ssuet-green to-ssuet-green-dark text-white text-3xl font-black mb-6 relative z-10 shadow-2xl" style="animation-delay: 0.2s;">
+                    02
+                </div>
+                <div class="mb-6 flex justify-center">
+                    <div class="w-20 h-20 bg-green-100 rounded-2xl flex items-center justify-center">
+                        <svg class="w-12 h-12 text-ssuet-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                        </svg>
+                    </div>
+                </div>
+                <h3 class="text-2xl font-bold text-ssuet-purple mb-3">Register Online</h3>
+                <p class="text-gray-600 leading-relaxed">
+                    Fill out a simple form to secure your spot at any event that interests you
+                </p>
+            </div>
+            
+            <!-- Step 3 -->
+            <div class="text-center relative mt-2">
+                <div class="inline-flex items-center justify-center w-24 h-24 rounded-full bg-gradient-to-br from-ssuet-purple to-ssuet-green text-white text-3xl font-black mb-6 relative z-10 shadow-2xl animate-pulse" style="animation-delay: 0.4s;">
+                    03
+                </div>
+                <div class="mb-6 flex justify-center">
+                    <div class="w-20 h-20 bg-purple-100 rounded-2xl flex items-center justify-center">
+                        <svg class="w-12 h-12 text-ssuet-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                </div>
+                <h3 class="text-2xl font-bold text-ssuet-purple mb-3">Attend & Enjoy</h3>
+                <p class="text-gray-600 leading-relaxed">
+                    Show up on event day and make the most of your university experience
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="py-24 bg-gradient-to-br from-ssuet-purple to-ssuet-purple-dark text-white relative overflow-hidden">
+    <!-- Background Pattern -->
+    <div class="absolute inset-0 opacity-10">
+        <div class="absolute top-0 left-0 w-96 h-96 bg-ssuet-green rounded-full blur-3xl animate-float"></div>
+        <div class="absolute bottom-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl animate-float" style="animation-delay: 1.5s;"></div>
+    </div>
+    
+    <div class="max-w-4xl mx-auto px-6 lg:px-8 text-center relative z-10">
+        <div class="inline-block px-4 py-2 bg-white/20 backdrop-blur-sm text-white rounded-full text-sm font-bold uppercase tracking-wider mb-6">
+            Stay Connected
+        </div>
+        <h2 class="text-4xl md:text-5xl font-black mb-6 text-white">Ready to Join the Action?</h2>
+        <p class="text-xl text-purple-200 mb-10 leading-relaxed">
+            Stay updated with the latest events and never miss an opportunity to grow, learn, and connect
+        </p>
+        
+        <!-- Email Signup Form -->
+        <form class="flex flex-col sm:flex-row gap-4 max-w-xl mx-auto mb-8">
+            <input 
+                type="email" 
+                placeholder="Enter your email address" 
+                class="flex-1 px-6 py-4 rounded-xl text-gray-900 focus:outline-none focus:ring-4 focus:ring-ssuet-green font-medium"
+                required>
+            <button 
+                type="submit" 
+                class="px-8 py-4 bg-ssuet-green text-white font-bold rounded-xl hover:bg-ssuet-green-light transition-all shadow-xl hover:shadow-2xl">
+                Get Notified
+            </button>
+        </form>
+        
+        <p class="text-sm text-purple-200 flex items-center justify-center gap-2">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+            Join 5000+ students already receiving event updates
+        </p>
+    </div>
+</section>
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+// Smooth scroll animation
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    });
+});
+
+// Intersection Observer for scroll animations
+const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -100px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+        }
+    });
+}, observerOptions);
+
+// Observe all sections
+document.querySelectorAll('section').forEach(section => {
+    section.style.opacity = '0';
+    section.style.transform = 'translateY(30px)';
+    section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    observer.observe(section);
+});
+
+// Counter animation for stats
+function animateCounter(element, target) {
+    let current = 0;
+    const increment = target / 50;
+    const timer = setInterval(() => {
+        current += increment;
+        if (current >= target) {
+            element.textContent = target + '+';
+            clearInterval(timer);
+        } else {
+            element.textContent = Math.floor(current) + '+';
+        }
+    }, 30);
+}
+
+// Trigger counter animation when visible
+const statsObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const statNumber = entry.target.querySelector('.stat-number');
+            if (statNumber && !statNumber.classList.contains('animated')) {
+                statNumber.classList.add('animated');
+                const target = parseInt(statNumber.textContent);
+                animateCounter(statNumber, target);
+            }
+        }
+    });
+}, { threshold: 0.5 });
+
+document.querySelectorAll('.stat-number').forEach(stat => {
+    statsObserver.observe(stat.parentElement);
+});
+</script>
+{% endblock %}

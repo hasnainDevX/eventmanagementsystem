@@ -1,0 +1,138 @@
+{% extends "base.html" %}
+
+{% block title %}Event Registration - SSUET Events{% endblock %}
+
+{% block content %}
+
+<!-- Hero Section -->
+<section class="relative py-12 bg-gradient-to-br from-ssuet-purple to-ssuet-purple-dark">
+    <div class="max-w-6xl mx-auto px-6 text-center">
+        <h1 class="text-3xl md:text-4xl font-black text-white mb-2">
+            Event Registration
+        </h1>
+        <p class="text-purple-100">
+            Please fill out the form below to register
+        </p>
+    </div>
+</section>
+
+<!-- Main Content -->
+<section class="py-12 bg-gray-50">
+    <div class="max-w-5xl mx-auto px-6">
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+
+            <!-- Event Preview (STATIC) -->
+            <div class="lg:col-span-1">
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden sticky top-8">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800"
+                        alt="Event"
+                        class="w-full h-48 object-cover"
+                    >
+
+                    <div class="p-6">
+                        <span class="inline-block mb-2 px-3 py-1 bg-ssuet-green text-white text-xs font-bold rounded-full">
+                            Technology
+                        </span>
+
+                        <h3 class="text-xl font-black text-ssuet-purple mb-4">
+                            Tech Conference 2024
+                        </h3>
+
+                        <p class="text-sm text-gray-700 mb-2">
+                            📅 March 25, 2024
+                        </p>
+
+                        <p class="text-sm text-gray-700 mb-2">
+                            📍 Main Auditorium, SSUET
+                        </p>
+
+                        <p class="text-sm text-gray-700">
+                            👤 SSUET Computer Society
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Registration Form -->
+            <div class="lg:col-span-2">
+                <div class="bg-white rounded-2xl shadow-lg border border-gray-100">
+
+                    <div class="px-8 py-6 border-b">
+                        <h2 class="text-2xl font-black text-ssuet-purple">
+                            Registration Form
+                        </h2>
+                        <p class="text-sm text-gray-600">
+                            Enter your details below
+                        </p>
+                    </div>
+
+                    <form id="registrationForm" class="p-8 space-y-6">
+
+                        <div>
+                            <label class="form-label">Full Name</label>
+                            <input type="text" class="form-input" required>
+                        </div>
+
+                        <div>
+                            <label class="form-label">Email</label>
+                            <input type="email" class="form-input" required>
+                        </div>
+
+                        <div>
+                            <label class="form-label">Phone Number</label>
+                            <input type="tel" class="form-input" required>
+                        </div>
+
+                        <div>
+                            <label class="form-label">Department</label>
+                            <select class="form-input" required>
+                                <option value="">Select Department</option>
+                                <option>Computer Science</option>
+                                <option>Software Engineering</option>
+                                <option>Electrical Engineering</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="form-label">Additional Notes</label>
+                            <textarea class="form-textarea" rows="3"></textarea>
+                        </div>
+
+                        <div class="flex items-start gap-2">
+                            <input type="checkbox" required>
+                            <span class="text-sm text-gray-700">
+                                I agree to the event rules and regulations
+                            </span>
+                        </div>
+
+                        <div class="flex gap-4 pt-6">
+                            <button type="submit" class="btn-primary flex-1">
+                                Complete Registration
+                            </button>
+
+                            <a href="/events" class="btn-secondary flex-1 text-center">
+                                Back to Events
+                            </a>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<script>
+document.getElementById("registrationForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+    alert("Registration Successful!");
+    window.location.href = "/";
+});
+</script>
+
+{% endblock %}

@@ -1,0 +1,658 @@
+{% extends "base.html" %} {% block title %}Contact Us - SSUET Events{% endblock
+%} {% block content %}
+
+<!-- Hero Section with Image Overlay -->
+<section class="relative h-[400px] bg-ssuet-purple overflow-hidden">
+  <!-- Background Image with Overlay -->
+  <div class="absolute inset-0">
+    <img
+      src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=1920&h=400&fit=crop"
+      alt="Contact Us"
+      class="w-full h-full object-cover"
+    />
+    <div
+      class="absolute inset-0 bg-gradient-to-r from-ssuet-purple/95 to-ssuet-purple-dark/90"
+    ></div>
+  </div>
+
+  <!-- Content -->
+  <div
+    class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 h-full flex items-center"
+  >
+    <div class="max-w-2xl">
+      <div
+        class="inline-block px-4 py-2 bg-white/20 backdrop-blur-sm text-white rounded-full text-sm font-bold uppercase tracking-wider mb-6"
+      >
+        Get In Touch
+      </div>
+      <h1 class="text-5xl md:text-6xl font-black text-white mb-6 leading-tight">
+        Contact Us
+      </h1>
+      <p class="text-xl text-purple-100 leading-relaxed">
+        Have questions? We're here to help. Reach out to us and we'll get back
+        to you as soon as possible.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Info Cards -->
+<section class="py-12 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 -mt-20 relative z-20">
+      <!-- Email Card -->
+      <div
+        class="bg-white rounded-2xl p-8 shadow-xl text-center hover:shadow-2xl transition-shadow"
+      >
+        <div
+          class="w-16 h-16 bg-gradient-to-br from-ssuet-purple to-ssuet-purple-dark rounded-2xl flex items-center justify-center mx-auto mb-4"
+        >
+          <svg
+            class="w-8 h-8 text-white"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+            ></path>
+          </svg>
+        </div>
+        <h3 class="text-lg font-bold text-ssuet-purple mb-2">Email Us</h3>
+        <p class="text-gray-600 mb-3">Send us an email anytime</p>
+        <a
+          href="mailto:events@ssuet.edu.pk"
+          class="text-ssuet-green font-semibold hover:underline"
+        >
+          events@ssuet.edu.pk
+        </a>
+      </div>
+
+      <!-- Phone Card -->
+      <div
+        class="bg-white rounded-2xl p-8 shadow-xl text-center hover:shadow-2xl transition-shadow"
+      >
+        <div
+          class="w-16 h-16 bg-gradient-to-br from-ssuet-green to-ssuet-green-dark rounded-2xl flex items-center justify-center mx-auto mb-4"
+        >
+          <svg
+            class="w-8 h-8 text-white"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+            ></path>
+          </svg>
+        </div>
+        <h3 class="text-lg font-bold text-ssuet-purple mb-2">Call Us</h3>
+        <p class="text-gray-600 mb-3">Mon-Fri from 9am to 5pm</p>
+        <a
+          href="tel:+922134982200"
+          class="text-ssuet-green font-semibold hover:underline"
+        >
+          +92-21-34982200
+        </a>
+      </div>
+
+      <!-- Location Card -->
+      <div
+        class="bg-white rounded-2xl p-8 shadow-xl text-center hover:shadow-2xl transition-shadow"
+      >
+        <div
+          class="w-16 h-16 bg-gradient-to-br from-ssuet-purple to-ssuet-green rounded-2xl flex items-center justify-center mx-auto mb-4"
+        >
+          <svg
+            class="w-8 h-8 text-white"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+            ></path>
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+            ></path>
+          </svg>
+        </div>
+        <h3 class="text-lg font-bold text-ssuet-purple mb-2">Visit Us</h3>
+        <p class="text-gray-600 mb-3">Come say hello</p>
+        <p class="text-ssuet-green font-semibold">University Road, Karachi</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Form & Info Section -->
+<section class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+      <!-- Contact Form -->
+      <div>
+        <div class="mb-8">
+          <div
+            class="inline-block px-4 py-2 bg-purple-100 text-ssuet-purple rounded-full text-sm font-bold uppercase tracking-wider mb-4"
+          >
+            Send Message
+          </div>
+          <h2 class="text-4xl font-black text-ssuet-purple mb-4">
+            Get in Touch
+          </h2>
+          <div
+            class="w-20 h-1 bg-gradient-to-r from-ssuet-purple to-ssuet-green rounded-full mb-4"
+          ></div>
+          <p class="text-gray-600 text-lg">
+            Fill out the form below and we'll get back to you within 24 hours.
+          </p>
+        </div>
+
+        <form id="contact-form" class="space-y-6">
+          <!-- Name -->
+          <div>
+            <label for="name" class="form-label">Full Name *</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              required
+              class="form-input"
+              placeholder="John Doe"
+            />
+          </div>
+
+          <!-- Email -->
+          <div>
+            <label for="email" class="form-label">Email Address *</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              class="form-input"
+              placeholder="john@example.com"
+            />
+          </div>
+
+          <!-- Phone -->
+          <div>
+            <label for="phone" class="form-label">Phone Number</label>
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              class="form-input"
+              placeholder="+92-XXX-XXXXXXX"
+            />
+          </div>
+
+          <!-- Subject -->
+          <div>
+            <label for="subject" class="form-label">Subject *</label>
+            <select id="subject" name="subject" required class="form-input">
+              <option value="">Select a subject</option>
+              <option value="event-inquiry">Event Inquiry</option>
+              <option value="registration-issue">Registration Issue</option>
+              <option value="technical-support">Technical Support</option>
+              <option value="partnership">Partnership Opportunity</option>
+              <option value="feedback">Feedback</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+
+          <!-- Message -->
+          <div>
+            <label for="message" class="form-label">Message *</label>
+            <textarea
+              id="message"
+              name="message"
+              required
+              rows="6"
+              class="form-textarea"
+              placeholder="Tell us how we can help you..."
+            ></textarea>
+          </div>
+
+          <!-- Submit Button -->
+          <button
+            type="submit"
+            class="w-full btn-primary flex items-center justify-center gap-3"
+          >
+            <span>Send Message</span>
+            <svg
+              class="w-5 h-5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"
+              ></path>
+            </svg>
+          </button>
+        </form>
+
+        <!-- Success Message -->
+        <div
+          id="success-message"
+          class="hidden mt-6 p-4 bg-green-50 border-l-4 border-ssuet-green rounded-lg"
+        >
+          <div class="flex items-center gap-3">
+            <svg
+              class="w-6 h-6 text-ssuet-green"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+              ></path>
+            </svg>
+            <div>
+              <h4 class="font-bold text-ssuet-green">Message Sent!</h4>
+              <p class="text-sm text-gray-600">
+                Thank you for contacting us. We'll get back to you soon.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Error Message -->
+        <div
+          id="error-message"
+          class="hidden mt-6 p-4 bg-red-50 border-l-4 border-red-500 rounded-lg"
+        >
+          <div class="flex items-center gap-3">
+            <svg
+              class="w-6 h-6 text-red-500"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+              ></path>
+            </svg>
+            <div>
+              <h4 class="font-bold text-red-500">Oops!</h4>
+              <p class="text-sm text-gray-600">
+                Something went wrong. Please try again.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact Information & Map -->
+      <div>
+        <!-- Office Hours -->
+        <div
+          class="bg-gradient-to-br from-ssuet-purple to-ssuet-purple-dark rounded-2xl p-8 text-white mb-8"
+        >
+          <h3 class="text-2xl font-bold mb-6 text-white">Office Hours</h3>
+          <div class="space-y-4">
+            <div
+              class="flex items-center justify-between py-3 border-b border-white/20"
+            >
+              <span class="font-semibold">Monday - Friday</span>
+              <span>9:00 AM - 5:00 PM</span>
+            </div>
+            <div
+              class="flex items-center justify-between py-3 border-b border-white/20"
+            >
+              <span class="font-semibold">Saturday</span>
+              <span>10:00 AM - 2:00 PM</span>
+            </div>
+            <div class="flex items-center justify-between py-3">
+              <span class="font-semibold">Sunday</span>
+              <span class="text-purple-300">Closed</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Map Placeholder -->
+        <div class="rounded-2xl overflow-hidden shadow-lg mb-8">
+          <div class="relative h-80 bg-gray-200">
+            <!-- Replace with actual Google Maps embed -->
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3618.4793119179135!2d67.09090287414304!3d24.91573644304581!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3eb33f32a0f2c3f3%3A0x4fc0a6fd386117f0!2sSir%20Syed%20University%20of%20Engineering%20and%20Technology!5e0!3m2!1sen!2s!4v1768850539760!5m2!1sen!2s"
+              width="600"
+              height="450"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              style="border: 0"
+              allowfullscreen=""
+              referrerpolicy="no-referrer-when-downgrade"
+              class="w-full h-full"
+            >
+            </iframe>
+          </div>
+        </div>
+
+        <!-- Additional Contact Info -->
+        <div class="bg-gray-50 rounded-2xl p-8">
+          <h3 class="text-xl font-bold text-ssuet-purple mb-6">
+            Other Ways to Reach Us
+          </h3>
+          <div class="space-y-4">
+            <!-- Department -->
+            <div class="flex items-start gap-4">
+              <div
+                class="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0"
+              >
+                <svg
+                  class="w-5 h-5 text-ssuet-purple"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
+                  ></path>
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-semibold text-ssuet-purple mb-1">Department</h4>
+                <p class="text-gray-600 text-sm">Student Affairs Office</p>
+              </div>
+            </div>
+
+            <!-- Social Media -->
+            <div class="flex items-start gap-4">
+              <div
+                class="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0"
+              >
+                <svg
+                  class="w-5 h-5 text-ssuet-purple"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"
+                  ></path>
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-semibold text-ssuet-purple mb-2">Follow Us</h4>
+                <div class="flex gap-3">
+                  <a
+                    href="#"
+                    class="w-8 h-8 bg-ssuet-purple hover:bg-ssuet-purple-dark rounded-lg flex items-center justify-center transition-colors"
+                  >
+                    <svg
+                      class="w-4 h-4 text-white"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
+                      />
+                    </svg>
+                  </a>
+                  <a
+                    href="#"
+                    class="w-8 h-8 bg-ssuet-purple hover:bg-ssuet-purple-dark rounded-lg flex items-center justify-center transition-colors"
+                  >
+                    <svg
+                      class="w-4 h-4 text-white"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"
+                      />
+                    </svg>
+                  </a>
+                  <a
+                    href="#"
+                    class="w-8 h-8 bg-ssuet-purple hover:bg-ssuet-purple-dark rounded-lg flex items-center justify-center transition-colors"
+                  >
+                    <svg
+                      class="w-4 h-4 text-white"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"
+                      />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="py-20 bg-gray-50">
+  <div class="max-w-4xl mx-auto px-6 lg:px-8">
+    <div class="text-center mb-12">
+      <div
+        class="inline-block px-4 py-2 bg-green-100 text-ssuet-green rounded-full text-sm font-bold uppercase tracking-wider mb-4"
+      >
+        FAQs
+      </div>
+      <h2 class="text-4xl font-black text-ssuet-purple mb-4">
+        Frequently Asked Questions
+      </h2>
+      <div
+        class="w-20 h-1 bg-gradient-to-r from-ssuet-purple to-ssuet-green rounded-full mx-auto"
+      ></div>
+    </div>
+
+    <div class="space-y-4">
+      <!-- FAQ 1 -->
+      <details
+        class="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow group"
+      >
+        <summary
+          class="font-bold text-ssuet-purple cursor-pointer list-none flex items-center justify-between"
+        >
+          <span>How do I register for an event?</span>
+          <svg
+            class="w-5 h-5 text-ssuet-green group-open:rotate-180 transition-transform"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M19 9l-7 7-7-7"
+            ></path>
+          </svg>
+        </summary>
+        <p class="mt-4 text-gray-600 leading-relaxed">
+          Simply browse our events page, select the event you're interested in,
+          and click the "Register" button. Fill out the registration form with
+          your details, and you'll receive a confirmation email.
+        </p>
+      </details>
+
+      <!-- FAQ 2 -->
+      <details
+        class="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow group"
+      >
+        <summary
+          class="font-bold text-ssuet-purple cursor-pointer list-none flex items-center justify-between"
+        >
+          <span>Can I cancel my registration?</span>
+          <svg
+            class="w-5 h-5 text-ssuet-green group-open:rotate-180 transition-transform"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M19 9l-7 7-7-7"
+            ></path>
+          </svg>
+        </summary>
+        <p class="mt-4 text-gray-600 leading-relaxed">
+          Yes, you can cancel your registration up to 24 hours before the event.
+          Log in to your dashboard and click "Cancel Registration" next to the
+          event.
+        </p>
+      </details>
+
+      <!-- FAQ 3 -->
+      <details
+        class="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow group"
+      >
+        <summary
+          class="font-bold text-ssuet-purple cursor-pointer list-none flex items-center justify-between"
+        >
+          <span>Are events free for students?</span>
+          <svg
+            class="w-5 h-5 text-ssuet-green group-open:rotate-180 transition-transform"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M19 9l-7 7-7-7"
+            ></path>
+          </svg>
+        </summary>
+        <p class="mt-4 text-gray-600 leading-relaxed">
+          Most events organized by SSUET are free for enrolled students. Some
+          special workshops or seminars may have a nominal fee, which will be
+          clearly indicated on the event page.
+        </p>
+      </details>
+
+      <!-- FAQ 4 -->
+      <details
+        class="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow group"
+      >
+        <summary
+          class="font-bold text-ssuet-purple cursor-pointer list-none flex items-center justify-between"
+        >
+          <span>Will I receive a certificate?</span>
+          <svg
+            class="w-5 h-5 text-ssuet-green group-open:rotate-180 transition-transform"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M19 9l-7 7-7-7"
+            ></path>
+          </svg>
+        </summary>
+        <p class="mt-4 text-gray-600 leading-relaxed">
+          Certificates are provided for workshops, seminars, and training
+          sessions upon successful completion. You can download your
+          certificates from your dashboard after the event.
+        </p>
+      </details>
+    </div>
+  </div>
+</section>
+
+{% endblock %} {% block scripts %}
+<script>
+  // Contact Form Submission
+  document
+    .getElementById("contact-form")
+    .addEventListener("submit", async function (e) {
+      e.preventDefault();
+
+      const form = e.target;
+      const submitButton = form.querySelector('button[type="submit"]');
+      const successMessage = document.getElementById("success-message");
+      const errorMessage = document.getElementById("error-message");
+
+      // Hide previous messages
+      successMessage.classList.add("hidden");
+      errorMessage.classList.add("hidden");
+
+      // Disable submit button
+      submitButton.disabled = true;
+      submitButton.innerHTML = "<span>Sending...</span>";
+
+      // Get form data
+      const formData = {
+        name: document.getElementById("name").value,
+        email: document.getElementById("email").value,
+        phone: document.getElementById("phone").value,
+        subject: document.getElementById("subject").value,
+        message: document.getElementById("message").value,
+      };
+      try {
+        // Send form data to backend
+        const response = await fetch("/api/contact", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        });
+
+        const result = await response.json();
+
+        if (result.success) {
+          // Show success message
+          successMessage.classList.remove("hidden");
+          form.reset();
+        } else {
+          // Show error message
+          errorMessage.classList.remove("hidden");
+        }
+      } catch (error) {
+        console.error("Error:", error);
+        errorMessage.classList.remove("hidden");
+      } finally {
+        // Re-enable submit button
+        submitButton.disabled = false;
+        submitButton.innerHTML =
+          '<span>Send Message</span><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>';
+      }
+    });
+</script>
+{% endblock %}

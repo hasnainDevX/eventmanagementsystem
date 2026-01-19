@@ -1,0 +1,304 @@
+{% extends "base.html" %}
+
+{% block title %}About Us - SSUET Events{% endblock %}
+
+{% block content %}
+
+<!-- Hero Section with Image Overlay -->
+<section class="relative h-[500px] bg-ssuet-purple overflow-hidden">
+    <!-- Background Image with Overlay -->
+    <div class="absolute inset-0">
+        <img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=1920&h=500&fit=crop" 
+             alt="SSUET Campus" 
+             class="w-full h-full object-cover">
+        <div class="absolute inset-0 bg-gradient-to-r from-ssuet-purple/95 to-ssuet-purple-dark/90"></div>
+    </div>
+    
+    <!-- Content -->
+    <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 h-full flex items-center">
+        <div class="max-w-3xl">
+            <div class="inline-block px-4 py-2 bg-white/20 backdrop-blur-sm text-white rounded-full text-sm font-bold uppercase tracking-wider mb-6">
+                About SSUET Events
+            </div>
+            <h1 class="text-5xl md:text-6xl font-black text-white mb-6 leading-tight">
+                Empowering Student
+                <span class="text-ssuet-green">Success Through Events</span>
+            </h1>
+            <p class="text-xl text-purple-100 leading-relaxed">
+                The official event management platform of Sir Syed University of Engineering & Technology, 
+                connecting students with opportunities for growth and excellence.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- Mission & Vision Section -->
+<section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+            <!-- Our Mission -->
+            <div class="relative">
+                <div class="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-ssuet-purple to-ssuet-purple-dark rounded-2xl mb-6">
+                    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                    </svg>
+                </div>
+                <h2 class="text-3xl font-black text-ssuet-purple mb-4">Our Mission</h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-ssuet-purple to-ssuet-green rounded-full mb-6"></div>
+                <p class="text-gray-600 text-lg leading-relaxed mb-6">
+                    To create a vibrant campus ecosystem where every student has access to enriching experiences 
+                    that complement their academic journey. We strive to bridge the gap between classroom learning 
+                    and real-world application through carefully curated events, workshops, and seminars.
+                </p>
+                <p class="text-gray-600 text-lg leading-relaxed">
+                    Our platform empowers student organizations, faculty, and administration to seamlessly organize 
+                    and manage events that foster holistic development, professional growth, and community engagement.
+                </p>
+            </div>
+
+            <!-- Our Vision -->
+            <div class="relative">
+                <div class="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-ssuet-green to-ssuet-green-dark rounded-2xl mb-6">
+                    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                    </svg>
+                </div>
+                <h2 class="text-3xl font-black text-ssuet-purple mb-4">Our Vision</h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-ssuet-green to-ssuet-purple rounded-full mb-6"></div>
+                <p class="text-gray-600 text-lg leading-relaxed mb-6">
+                    To become Pakistan's leading university event management platform, setting the standard for 
+                    student engagement and experiential learning. We envision a future where every SSUET student 
+                    graduates not just with academic credentials, but with a rich portfolio of experiences.
+                </p>
+                <p class="text-gray-600 text-lg leading-relaxed">
+                    We aim to cultivate a culture of continuous learning, innovation, and collaboration through 
+                    technology-enabled event management that makes participation accessible to all students.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Stats Section -->
+<section class="py-16 bg-gradient-to-br from-ssuet-purple to-ssuet-purple-dark text-white">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+            <div class="text-center">
+                <div class="text-5xl font-black mb-2">500+</div>
+                <div class="text-purple-200 font-semibold uppercase text-sm tracking-wider">Events Hosted</div>
+            </div>
+            <div class="text-center">
+                <div class="text-5xl font-black mb-2">5000+</div>
+                <div class="text-purple-200 font-semibold uppercase text-sm tracking-wider">Active Students</div>
+            </div>
+            <div class="text-center">
+                <div class="text-5xl font-black mb-2">15+</div>
+                <div class="text-purple-200 font-semibold uppercase text-sm tracking-wider">Event Categories</div>
+            </div>
+            <div class="text-center">
+                <div class="text-5xl font-black mb-2">50+</div>
+                <div class="text-purple-200 font-semibold uppercase text-sm tracking-wider">Partner Organizations</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- What We Offer Section -->
+<section class="py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <div class="inline-block px-4 py-2 bg-purple-100 text-ssuet-purple rounded-full text-sm font-bold uppercase tracking-wider mb-4">
+                What We Offer
+            </div>
+            <h2 class="text-4xl md:text-5xl font-black text-ssuet-purple mb-4">
+                Why Choose SSUET Events?
+            </h2>
+            <div class="w-20 h-1 bg-gradient-to-r from-ssuet-purple to-ssuet-green rounded-full mx-auto mb-6"></div>
+            <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                Our platform provides comprehensive event management solutions designed specifically for the SSUET community
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Feature 1 -->
+            <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-shadow">
+                <div class="w-14 h-14 bg-purple-100 rounded-xl flex items-center justify-center mb-6">
+                    <svg class="w-7 h-7 text-ssuet-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold text-ssuet-purple mb-3">Easy Event Discovery</h3>
+                <p class="text-gray-600 leading-relaxed">
+                    Browse and discover events across categories with powerful search and filtering options tailored to your interests.
+                </p>
+            </div>
+
+            <!-- Feature 2 -->
+            <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-shadow">
+                <div class="w-14 h-14 bg-green-100 rounded-xl flex items-center justify-center mb-6">
+                    <svg class="w-7 h-7 text-ssuet-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold text-ssuet-purple mb-3">Seamless Registration</h3>
+                <p class="text-gray-600 leading-relaxed">
+                    Register for events instantly with our streamlined process. Get instant confirmations and reminders via email.
+                </p>
+            </div>
+
+            <!-- Feature 3 -->
+            <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-shadow">
+                <div class="w-14 h-14 bg-purple-100 rounded-xl flex items-center justify-center mb-6">
+                    <svg class="w-7 h-7 text-ssuet-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold text-ssuet-purple mb-3">Real-Time Updates</h3>
+                <p class="text-gray-600 leading-relaxed">
+                    Stay informed with real-time notifications about event changes, seat availability, and new opportunities.
+                </p>
+            </div>
+
+            <!-- Feature 4 -->
+            <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-shadow">
+                <div class="w-14 h-14 bg-green-100 rounded-xl flex items-center justify-center mb-6">
+                    <svg class="w-7 h-7 text-ssuet-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold text-ssuet-purple mb-3">Personal Dashboard</h3>
+                <p class="text-gray-600 leading-relaxed">
+                    Track your registered events, attendance history, and certificates all in one personalized dashboard.
+                </p>
+            </div>
+
+            <!-- Feature 5 -->
+            <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-shadow">
+                <div class="w-14 h-14 bg-purple-100 rounded-xl flex items-center justify-center mb-6">
+                    <svg class="w-7 h-7 text-ssuet-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold text-ssuet-purple mb-3">Diverse Categories</h3>
+                <p class="text-gray-600 leading-relaxed">
+                    From technical workshops to cultural events, sports tournaments to academic seminars - find events that match your passion.
+                </p>
+            </div>
+
+            <!-- Feature 6 -->
+            <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-shadow">
+                <div class="w-14 h-14 bg-green-100 rounded-xl flex items-center justify-center mb-6">
+                    <svg class="w-7 h-7 text-ssuet-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold text-ssuet-purple mb-3">Quality Assurance</h3>
+                <p class="text-gray-600 leading-relaxed">
+                    All events are verified and managed by official SSUET departments ensuring quality and credibility.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Our Values Section -->
+<section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <div class="inline-block px-4 py-2 bg-green-100 text-ssuet-green rounded-full text-sm font-bold uppercase tracking-wider mb-4">
+                Our Core Values
+            </div>
+            <h2 class="text-4xl md:text-5xl font-black text-ssuet-purple mb-4">
+                What Drives Us
+            </h2>
+            <div class="w-20 h-1 bg-gradient-to-r from-ssuet-purple to-ssuet-green rounded-full mx-auto"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Value 1 -->
+            <div class="flex gap-6 items-start p-6 rounded-2xl hover:bg-gray-50 transition-colors">
+                <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-ssuet-purple to-ssuet-purple-dark rounded-xl flex items-center justify-center text-white text-xl font-black">
+                    1
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold text-ssuet-purple mb-2">Excellence</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        We strive for excellence in every event, ensuring high-quality experiences that add real value to students' university journey.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Value 2 -->
+            <div class="flex gap-6 items-start p-6 rounded-2xl hover:bg-gray-50 transition-colors">
+                <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-ssuet-green to-ssuet-green-dark rounded-xl flex items-center justify-center text-white text-xl font-black">
+                    2
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold text-ssuet-purple mb-2">Inclusivity</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Every student deserves access to opportunities. We ensure our platform and events are accessible to all members of the SSUET community.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Value 3 -->
+            <div class="flex gap-6 items-start p-6 rounded-2xl hover:bg-gray-50 transition-colors">
+                <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-ssuet-purple to-ssuet-green rounded-xl flex items-center justify-center text-white text-xl font-black">
+                    3
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold text-ssuet-purple mb-2">Innovation</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        We continuously innovate our platform and event formats to stay ahead and provide cutting-edge learning experiences.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Value 4 -->
+            <div class="flex gap-6 items-start p-6 rounded-2xl hover:bg-gray-50 transition-colors">
+                <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-ssuet-green to-ssuet-purple rounded-xl flex items-center justify-center text-white text-xl font-black">
+                    4
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold text-ssuet-purple mb-2">Collaboration</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        We believe in the power of collaboration between students, faculty, and industry to create meaningful experiences.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="py-20 bg-gradient-to-br from-ssuet-purple to-ssuet-purple-dark text-white relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10">
+        <div class="absolute top-0 left-0 w-96 h-96 bg-ssuet-green rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl"></div>
+    </div>
+    
+    <div class="max-w-4xl mx-auto px-6 lg:px-8 text-center relative z-10">
+        <h2 class="text-4xl md:text-5xl font-black mb-6 text-white">Ready to Get Started?</h2>
+        <p class="text-xl text-purple-200 mb-10 leading-relaxed">
+            Join thousands of SSUET students in discovering and participating in amazing campus events
+        </p>
+        
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="/events" class="btn-green inline-flex items-center gap-3">
+                <span>Browse Events</span>
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                </svg>
+            </a>
+            <a href="/contact" class="px-8 py-4 bg-white text-ssuet-purple font-bold rounded-xl hover:bg-gray-100 transition-all inline-flex items-center gap-3">
+                Contact Us
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                </svg>
+            </a>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
